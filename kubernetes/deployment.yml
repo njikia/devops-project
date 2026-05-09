@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: taskapp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: taskapp
+  template:
+    metadata:
+      labels:
+        app: taskapp
+    spec:
+      containers:
+      - name: taskapp
+        image: nginx:alpine
+        ports:
+        - containerPort: 80
